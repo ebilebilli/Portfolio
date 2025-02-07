@@ -70,20 +70,50 @@
 
   <!--/ Intro Skew Star /-->
   <div id="home" class="intro route bg-image" style="background-image: url('{% static 'img/background_two.jpg' %}')">
-
     <div class="overlay-itro"></div>
     <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">I am Ebilli Ebil</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Python Django Developer,Backend Developer,Web Developer</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+        <div class="table-cell">
+            <div class="container">
+                <h1 class="intro-title mb-4">I am Ebilli Ebil</h1>
+                <p class="intro-subtitle">
+                    <span class="text-slider-items">Python Django Developer,Backend Developer,Web Developer,API Developer</span>
+                    <strong class="text-slider"></strong>
+                </p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!--/ Intro Skew End /-->
+</div>
+
+<script>
+  const items = document.querySelector('.text-slider-items');
+  const texts = items.textContent.split(','); // Split text by commas into an array
+  let currentIndex = 0;
+  let letterIndex = 0;
+  let currentText = '';
+  const typingSpeed = 100; // Speed of typing (in milliseconds)
+  const pauseBetweenWords = 1000; // Pause between words (in milliseconds)
+
+  function typeText() {
+    if (letterIndex < texts[currentIndex].length) {
+      currentText += texts[currentIndex].charAt(letterIndex); // Add one letter at a time
+      document.querySelector('.text-slider').textContent = currentText;
+      letterIndex++;
+      setTimeout(typeText, typingSpeed); // Call typeText again after the delay
+    } else {
+      // Wait for a pause before starting to type the next word
+      setTimeout(function() {
+        letterIndex = 0;
+        currentText = '';
+        currentIndex = (currentIndex + 1) % texts.length; // Loop through the words
+        typeText(); // Start typing the next word
+      }, pauseBetweenWords);
+    }
+  }
+
+  typeText(); // Initial call to start the typing effect
+</script>
+
+
 
   <section id="about" class="about-mf sect-pt4 route">
     <div class="container">
@@ -261,7 +291,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{% static 'img/todo_pr.jpg' %}" data-lightbox="gallery-mf">
+            <a href="https://github.com/ebilebilli/Django-ToDo-project">
               <div class="work-img">
                 <img src="{% static 'img/todo_pr.jpg' %}" alt="" class="img-fluid">
 
@@ -276,9 +306,7 @@
                     </div>
                   </div>
                   <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -287,7 +315,7 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{% static 'img/weather_bot.jpg' %}" data-lightbox="gallery-mf">
+            <a href="https://github.com/ebilebilli/Weather_condition-bot">
               <div class="work-img">
                 <img src="{% static 'img/weather_bot.jpg' %}" alt="" class="img-fluid">
               </div>
@@ -300,9 +328,7 @@
                     </div>
                   </div>
                   <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -311,22 +337,21 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{% static 'img/wallpaper_bot.jpg' %}" data-lightbox="gallery-mf">
+          
+            <a href="https://github.com/ebilebilli/Telegram-wallpaper-bot">
               <div class="work-img">
                 <img src="{% static 'img/wallpaper_bot.jpg' %}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Wallpaper Bot </h2>
+                    <h2 class="w-title">Wallpaper Bot</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Telegram Bot</span> / <span class="w-date">18 Sep. 2018</span>
+                      <span class="w-ctegory">Telegram Bot</span> / <span class="w-date">18 Sep. 2024</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -455,6 +480,8 @@
   
   <!-- Contact Form JavaScript File -->
   <script src="{% static 'contactform/contactform.js' %}"></script>
+  
+
   
   <!-- Template Main Javascript File -->
   <script src="{% static 'js/main.js' %}"></script
