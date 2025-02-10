@@ -374,7 +374,9 @@
   <!--/ Section Blog End /-->
 
   <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url('{% static 'img/background_image_down.jpg' %}')">
+  {% load static %}  <!-- Static faylları yüklə -->
+
+<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url('{% static 'img/background_image_down.jpg' %}')">
     <div class="overlay-mf"></div>
     <div class="container">
         <div class="row">
@@ -383,6 +385,17 @@
                     <div id="contact" class="box-shadow-full">
                         <div class="row">
                             <div class="col-md-6">
+                                <!-- Mesajlar burada göstəriləcək -->
+                                {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
                                 <div class="title-box-2">
                                     <h5 class="title-left">
                                         Send Message To Me
@@ -434,33 +447,32 @@
                                 </div>
                                 <div class="more-info">
                                     <p class="lead">
-                                        Have a question or a project in mind? Feel free to reach out,and let’s discuss how I can help.
+                                        Have a question or a project in mind? Feel free to reach out, and let’s discuss how I can help.
                                     </p>
-                    <ul class="list-ico">
-                      <li><span class="ion-ios-location"></span> Azerbaijan,Baku</li>
-                      <li><span class="ion-ios-telephone"></span>  (+994) 051-390-19-50</li>
-                      <li><span class="ion-email"></span> ebilebili3@gmail.com</li>
-                    </ul>
-                  </div>
-                  <div class="socials">
-                    <ul>
-                      <li><a href="https://www.linkedin.com/in/%C9%99bil-%C9%99billi-b5812533a/"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
-                      <li><a href="https://github.com/ebilebilli"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
-                      <li><a href="https://www.instagram.com/ebil_ebilli/"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                      <li><a href="https://x.com/Ebil_Ebilli"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                      
-                    </ul>
-                  </div>
+                                    <ul class="list-ico">
+                                        <li><span class="ion-ios-location"></span> Azerbaijan, Baku</li>
+                                        <li><span class="ion-ios-telephone"></span> (+994) 051-390-19-50</li>
+                                        <li><span class="ion-email"></span> ebilebili3@gmail.com</li>
+                                    </ul>
+                                </div>
+                                <div class="socials">
+                                    <ul>
+                                        <li><a href="https://www.linkedin.com/in/%C9%99bil-%C9%99billi-b5812533a/"><span class="ico-circle"><i class="ion-social-linkedin"></i></span></a></li>
+                                        <li><a href="https://github.com/ebilebilli"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
+                                        <li><a href="https://www.instagram.com/ebil_ebilli/"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
+                                        <li><a href="https://x.com/Ebil_Ebilli"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
     <footer>
     </footer>
-  </section>
+</section>
   <!--/ Section Contact-footer End /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
