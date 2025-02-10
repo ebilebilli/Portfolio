@@ -2,11 +2,17 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from .forms import ContactForm
+from .models import Project
 
 # Create your views here.
 
 def home_page(request):
     return render(request, 'index.html')
+
+
+def my_project(request):
+    projects = Project.objects.all()
+    return render(request, 'index.html', {'projects': projects})
 
 
 def contact_function(request):
@@ -34,3 +40,4 @@ def contact_function(request):
     form = ContactForm()
     return render(request, 'app:home_page', {form: 'form'})
     
+

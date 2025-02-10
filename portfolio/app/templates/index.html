@@ -274,96 +274,49 @@
   
 
   <!--/ Section Portfolio Star /-->
-  <section id="work" class="portfolio-mf sect-pt4 route">
+<section id="work" class="portfolio-mf sect-pt4 route">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Portfolio
-            </h3>
-            <p class="subtitle-a">
-              Showcasing a collection of my recent projects
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="https://github.com/ebilebilli/Django-ToDo-project">
-              <div class="work-img">
-                <img src="{% static 'img/todo_pr.jpg' %}" alt="" class="img-fluid">
-
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">To Do Project
-                    </h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Development</span> / <span class="w-date">18 Sep. 2025</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    
-                  </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">Portfolio</h3>
+                    <p class="subtitle-a">Showcasing a collection of my recent projects</p>
+                    <div class="line-mf"></div>
                 </div>
-              </div>
-            </a>
-          </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="https://github.com/ebilebilli/Weather_condition-bot">
-              <div class="work-img">
-                <img src="{% static 'img/weather_bot.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Weather Condition Bot</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Telegram bot</span> / <span class="w-date">2025</span>
+        <div class="row">
+            {% if projects %}
+                {% for project in projects %}
+                    <div class="col-md-4">
+                        <div class="work-box">
+                            <a href="{{ project.url }}" target="_blank">
+                                <div class="work-img">
+                                    <img src="{{ project.image.url }}" alt="{{ project.name }}" class="img-fluid">
+                                </div>
+                                <div class="work-content">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h2 class="w-title">{{ project.name }}</h2>
+                                            <div class="w-more">
+                                                <span class="w-ctegory">{{ project.category }}</span> / 
+                                                <span class="w-date">{{ project.date }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                    
-                  </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-sm-12 text-center">
+                    <p class="alert alert-warning">None.</p>
                 </div>
-              </div>
-            </a>
-          </div>
+            {% endif %}
         </div>
-        <div class="col-md-4">
-          <div class="work-box">
-          
-            <a href="https://github.com/ebilebilli/Telegram-wallpaper-bot">
-              <div class="work-img">
-                <img src="{% static 'img/wallpaper_bot.jpg' %}" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Wallpaper Bot</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Telegram Bot</span> / <span class="w-date">18 Sep. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        
-      </div>
     </div>
-  </section>
+</section>
   <!--/ Section Portfolio End /-->
 
   <!--/ Section Testimonials Star /-->
