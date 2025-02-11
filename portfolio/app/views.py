@@ -12,6 +12,7 @@ def home_page(request):
 
 def my_project(request):
     projects = Project.objects.all()
+    print("Projects count:", projects.count())  # Konsola layihələrin sayını yazdır
     return render(request, 'index.html', {'projects': projects})
 
 

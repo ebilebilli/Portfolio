@@ -274,7 +274,7 @@
   
 
   <!--/ Section Portfolio Star /-->
-<section id="work" class="portfolio-mf sect-pt4 route">
+  <section id="work" class="portfolio-mf sect-pt4 route">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -299,7 +299,8 @@
                                         <div class="col-sm-8">
                                             <h2 class="w-title">{{ project.name }}</h2>
                                             <div class="w-more">
-                                                <span class="w-ctegory">{{ project.category }}</span> / 
+                                                <!-- Category is moved to a new line -->
+                                                <span class="w-ctegory" style="display:block; margin-top: 10px;">{{ project.category }}</span> 
                                                 <span class="w-date">{{ project.date }}</span>
                                             </div>
                                         </div>
@@ -316,7 +317,6 @@
             {% endif %}
         </div>
     </div>
-</section>
   <!--/ Section Portfolio End /-->
 
   <!--/ Section Testimonials Star /-->
